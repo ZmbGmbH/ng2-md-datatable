@@ -26,7 +26,7 @@ import { MdDatatableActions } from './md-datatable.actions';
   selector: 'ng2-md-datatable-row',
   template: `
     <td *ngIf="selectable" class="md-data-check-cell">
-      <md-checkbox [checked]="checked$ | async" (change)="onCheckboxChange($event)"></md-checkbox>
+      <mat-checkbox [checked]="checked$ | async" (change)="onCheckboxChange($event)"></mat-checkbox>
     </td>
     <ng-content></ng-content>
   `,
