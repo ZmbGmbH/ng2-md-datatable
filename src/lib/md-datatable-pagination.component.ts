@@ -16,34 +16,34 @@ import { IDatatablePaginationEvent } from './md-datatable.interfaces';
   selector: 'ng2-md-datatable-pagination',
   template: `
     <span>Rows per page:</span>
-    <md-select [ngModel]="itemsPerPage" (change)="onSelectChange($event)" class="pagination__itemsPerPage">
-      <md-option *ngFor="let choice of itemsPerPageChoices"
-        [value]="choice">{{ choice }}</md-option>
-    </md-select>
+    <mat-select [ngModel]="itemsPerPage" (change)="onSelectChange($event)" class="pagination__itemsPerPage">
+      <mat-option *ngFor="let choice of itemsPerPageChoices"
+        [value]="choice">{{ choice }}</mat-option>
+    </mat-select>
     <span class="pagination__range">{{firstIndexOfPage}}-{{lastIndexOfPage}} of {{itemsCount}}</span>
     <div class="pagination__controls">
       <button md-icon-button
         (click)="onClickFirst()"
         aria-label="First">
-        <md-icon>first_page</md-icon>
+        <mat-icon>first_page</mat-icon>
       </button>
-      <button md-icon-button
+      <button mat-icon-button
         [disabled]="isPreviousButtonEnabled"
         (click)="onClickPrevious()"
         aria-label="Previous">
-        <md-icon>navigate_before</md-icon>
+        <mat-icon>navigate_before</mat-icon>
       </button>
-      <button md-icon-button
+      <button mat-icon-button
         [disabled]="isNextOrLastButtonEnabled"
         (click)="onClickNext()"
         aria-label="Next">
-        <md-icon>navigate_next</md-icon>
+        <mat-icon>navigate_next</mat-icon>
       </button>
       <button md-icon-button
         [disabled]="isNextOrLastButtonEnabled"
         (click)="onClickLast()"
         aria-label="Last">
-        <md-icon>last_page</md-icon>
+        <mat-icon>last_page</mat-icon>
       </button>
     </div>
   `,
