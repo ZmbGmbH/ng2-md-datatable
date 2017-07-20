@@ -55,11 +55,11 @@
     vertical-align: middle;
 
     &.checked {
-      background-color: mat-color($accent, 100);
+      background-color: mat-color('grey', 100);
     }
 
     &.selectable:hover {
-      background-color: mat-color($accent, 50);
+      background-color: mat-color('grey', 200);
     }
 
     td {
