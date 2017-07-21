@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/pluck';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 
 import {
   IDatatablesState,
@@ -128,7 +130,7 @@ export function getDatatableState(datatableId: string): (state$: Observable<IDat
 }
 
 /** @internal */
-export function areAllRowsSelected(datatableId: string): (state$: Observable<IDatatablesState>) => Observable<boolean> {
+export function areAllRowsSelected(datatableId: string): (state$: Observable<IDatatablesState>) => Observable<{}> {
   return (state$: Observable<IDatatablesState>) => getDatatableState(datatableId)(state$)
     .pluck('allRowsSelected')
     .distinctUntilChanged();

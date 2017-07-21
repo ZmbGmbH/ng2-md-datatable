@@ -92,13 +92,14 @@ task(':build:components:rollup', [':build:components:inline'], () => {
     context: 'this',
     external: Object.keys(globals)
   }).then((bundle: { generate: any }) => {
-    const result = bundle.generate({
+    return bundle.generate({
       moduleName: 'ng2-md-datatable',
       format: 'umd',
       globals,
       sourceMap: true,
       dest: path.join(DIST_COMPONENTS_ROOT, 'ng2-md-datatable.umd.js')
     });
+  }).then((result) => {
 
     // Add source map URL to the code.
     result.code += '\n\n//# sourceMappingURL=./ng2-md-datatable.umd.js.map\n';
