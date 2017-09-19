@@ -22,7 +22,7 @@ import { IDatatablePaginationEvent } from './md-datatable.interfaces';
     </mat-select>
     <span class="pagination__range">{{firstIndexOfPage}}-{{lastIndexOfPage}} of {{itemsCount}}</span>
     <div class="pagination__controls">
-      <button md-icon-button
+      <button mat-icon-button
         (click)="onClickFirst()"
         aria-label="First">
         <mat-icon>first_page</mat-icon>
@@ -39,7 +39,7 @@ import { IDatatablePaginationEvent } from './md-datatable.interfaces';
         aria-label="Next">
         <mat-icon>navigate_next</mat-icon>
       </button>
-      <button md-icon-button
+      <button mat-icon-button
         [disabled]="isNextOrLastButtonEnabled"
         (click)="onClickLast()"
         aria-label="Last">

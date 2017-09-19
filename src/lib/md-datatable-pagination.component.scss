@@ -8,10 +8,23 @@
 
   font-weight: 400;
   color: #5c5c5c;
-  font-size: 0.8rem;
+  font-size: 12px;
+}
+
+.mat-select {
+    padding: 0;
 }
 
 .pagination__controls {
   display: inline-block;
   padding: 0;
+
+  .mat-icon-button {
+    width: 24px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 14px;
+    }
+  }
 }
