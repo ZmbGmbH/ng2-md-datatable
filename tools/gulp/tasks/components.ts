@@ -88,16 +88,16 @@ task(':build:components:rollup', [':build:components:inline'], () => {
 
   // Rollup the UMD bundle from all ES5 + imports JavaScript files built.
   return rollup({
-    entry: path.join(DIST_COMPONENTS_ROOT, 'index.js'),
+    input: path.join(DIST_COMPONENTS_ROOT, 'index.js'),
     context: 'this',
     external: Object.keys(globals)
   }).then((bundle: { generate: any }) => {
     return bundle.generate({
-      moduleName: 'ng2-md-datatable',
+      name: 'ng2-md-datatable',
       format: 'umd',
       globals,
-      sourceMap: true,
-      dest: path.join(DIST_COMPONENTS_ROOT, 'ng2-md-datatable.umd.js')
+      sourcemap: true,
+      file: path.join(DIST_COMPONENTS_ROOT, 'ng2-md-datatable.umd.js')
     });
   }).then((result) => {
 
