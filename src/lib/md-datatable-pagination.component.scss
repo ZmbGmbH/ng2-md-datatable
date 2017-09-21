@@ -21,9 +21,11 @@
 
   .mat-icon-button {
     width: 24px;
+    height: 24px;
+    line-height: 24px;
     margin-right: 24px;
 
-    &:last-child {
+    &:last-child {
       margin-right: 14px;
     }
   }
