@@ -7,7 +7,7 @@
   ChangeDetectionStrategy,
 } from '@angular/core';
 
-import { MdSelectChange } from '@angular/material';
+import { MatSelectChange } from '@angular/material';
 
 import { BaseComponent } from './helpers';
 import { IDatatablePaginationEvent } from './md-datatable.interfaces';
@@ -96,7 +96,7 @@ export class MdDataTablePaginationComponent extends BaseComponent implements OnI
     }
   }
 
-  onSelectChange(event: MdSelectChange) {
+  onSelectChange(event: MatSelectChange) {
     this.paginationChange.emit(<IDatatablePaginationEvent>{
       page: 1,
       itemsPerPage: Number(event.value),

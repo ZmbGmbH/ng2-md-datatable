@@ -6,7 +6,7 @@ import {
   forwardRef,
 } from '@angular/core';
 
-import { MdCheckboxChange } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { async } from 'rxjs/scheduler/async';
@@ -59,7 +59,7 @@ export class MdDataTableHeaderComponent extends BaseComponent implements AfterVi
       .subscribe(this.allChecked$);
   }
 
-  onAllCheckedChange(e: MdCheckboxChange) {
+  onAllCheckedChange(e: MatCheckboxChange) {
     this.store.dispatch(this.actions.toggleSelectAll(this.datatableId, e.checked));
   }
 }

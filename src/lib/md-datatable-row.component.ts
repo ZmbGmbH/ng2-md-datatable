@@ -10,7 +10,7 @@ import {
   forwardRef,
 } from '@angular/core';
 
-import { MdCheckbox, MdCheckboxChange } from '@angular/material';
+import { MatCheckbox, MatCheckboxChange } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { async } from 'rxjs/scheduler/async';
 import 'rxjs/add/operator/let';
@@ -36,7 +36,7 @@ export class MdDataTableRowComponent extends BaseComponent implements AfterViewI
   @Input() selectableValue: string;
   checked$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  @ViewChild(MdCheckbox) checkboxCmp: MdCheckbox;
+  @ViewChild(MatCheckbox) checkboxCmp: MatCheckbox;
 
   private datatableId: string;
 
@@ -84,7 +84,7 @@ export class MdDataTableRowComponent extends BaseComponent implements AfterViewI
       .subscribe(this.checked$);
   }
 
-  onCheckboxChange(event: MdCheckboxChange) {
+  onCheckboxChange(event: MatCheckboxChange) {
     this.store.dispatch(
       this.actions.toggleSelectOne(this.datatableId, this.selectableValue, event.checked)
     );
