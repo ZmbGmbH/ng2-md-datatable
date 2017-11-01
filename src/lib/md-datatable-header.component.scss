@@ -13,5 +13,9 @@ tr {
 }
 
 .mat-progress-bar {
-    display: table-row;
+    transform: translateZ(0) translateY(-100%);
+
+    &[mode='query'] {
+        transform: rotateZ(180deg) translateY(100%);
+    }
 }
