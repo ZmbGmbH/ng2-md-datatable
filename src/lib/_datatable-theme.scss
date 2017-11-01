@@ -128,14 +128,26 @@
 
         .mat-select {
             width: 64px;
+            text-align: right;
 
             .mat-select-value {
+                $width: 40px;
+
                 right: 24px;
                 left: auto;
-                max-width: calc(100% - 24px);
+                width: $width;
+                max-width: $width;
                 color: #5c5c5c;
                 font-size: 12px;
                 font-weight: 400;
+            }
+
+            .mat-select-arrow-wrapper {
+                width: 24px;
+            }
+
+            .mat-select-arrow {
+                margin: 0 auto;
             }
 
             .mat-select-underline {
