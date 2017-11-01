@@ -30,6 +30,7 @@ import { MdDatatableActions } from './md-datatable.actions';
       </th>
       <ng-content></ng-content>
     </tr>
+    <mat-progress-bar [hidden]="hideProgress" [color]="progressColor" [mode]="progressMode" [value]="progressValue"></mat-progress-bar>
   `,
   styleUrls: ['md-datatable-header.component.scss']
 })
@@ -41,6 +42,38 @@ export class MdDataTableHeaderComponent extends BaseComponent implements AfterVi
   }
 
   private datatableId: string;
+
+  get progressColor() {
+    if (this.table.hasFailed) {
+      return 'warn';
+    }
+
+    return 'primary';
+  }
+
+  get progressMode() {
+    if (typeof this.table.progress === 'number' || this.table.hasFailed) {
+      return 'determinate';
+    }
+
+    if (this.table.isPreparing) {
+      return 'query';
+    }
+
+    return 'indeterminate';
+  }
+
+  get hideProgress() {
+    return !this.table.hasFailed && !this.table.isBusy;
+  }
+
+  get progressValue() {
+    if (this.table.hasFailed) {
+      return 100;
+    }
+
+    return this.table.progress;
+  }
 
   constructor(
     @Optional() @Inject(forwardRef(() => MdDataTableComponent)) private table: MdDataTableComponent,

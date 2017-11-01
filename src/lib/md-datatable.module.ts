@@ -1,7 +1,8 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatCheckboxModule, MatSelectModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatCheckboxModule, MatSelectModule, MatButtonModule, MatIconModule,
+          MatProgressBarModule } from '@angular/material';
 
 import { MdDataTableComponent } from './md-datatable.component';
 import { MdDataTableHeaderComponent } from './md-datatable-header.component';
@@ -34,6 +35,7 @@ import { MdDatatableActions } from './md-datatable.actions';
     MatSelectModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressBarModule,
   ],
   providers: [
     { provide: MdDatatableDispatcher, useClass: MdDatatableDispatcher },

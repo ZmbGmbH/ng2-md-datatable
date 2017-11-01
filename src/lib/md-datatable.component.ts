@@ -17,7 +17,7 @@ import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/takeUntil';
 
 import { IDatatableSelectionEvent, IDatatableSortEvent } from './md-datatable.interfaces';
-
+import INetworkRequest from './interfaces/NetworkRequest';
 import { BaseComponent } from './helpers';
 import { MdDataTableHeaderComponent } from './md-datatable-header.component';
 import { MdDataTableRowComponent } from './md-datatable-row.component';
@@ -55,6 +55,92 @@ export class MdDataTableComponent extends BaseComponent implements AfterContentI
   @ContentChildren(forwardRef(() => MdDataTableRowComponent)) rowsCmp: QueryList<MdDataTableRowComponent>;
 
   id = `md-datatable-${instanceId++}`;
+
+  private busy: any;
+
+  public progress: number|null = 0;
+  public isPreparing = false;
+  public hasFailed = false;
+  public isBusy = false;
+
+  public get busyInput() {
+    return this.busy;
+  }
+
+  @Input('busy')
+  public set busyInput(value) {
+    this.isPreparing = false;
+    this.hasFailed = false;
+    this.progress = null;
+    this.busy = value;
+
+    if (!this.busy) {
+      this.isBusy = false;
+    }
+
+    if ([typeof this.busy.then, typeof this.busy.catch].every(t => t === 'function')) {
+      const promise = this.busy;
+
+      promise.then(() => {
+        if (this.busy !== promise) {
+          return;
+        }
+
+        this.isBusy = false;
+      }).catch(() => {
+        if (this.busy !== promise) {
+          return;
+        }
+
+        this.hasFailed = true;
+        this.isBusy = false;
+      });
+
+      this.isBusy = true;
+
+      return;
+    }
+
+    if ([typeof this.busy.onReady, this.busy.on].every(t => t === 'function')) {
+      const request = this.busy as INetworkRequest;
+      const whenDone = () => {
+        if (this.busy !== request) {
+          return;
+        }
+
+        this.isBusy = false;
+      }
+
+      request.onReady(whenDone);
+      request.on('progress.send', (e: ProgressEvent) => {
+        if (this.busy !== request) {
+          return;
+        }
+
+        this.isPreparing = true;
+      });
+
+      request.on('progress.receive', (e: ProgressEvent) => {
+        if (this.busy !== request) {
+          return;
+        }
+
+        this.isPreparing = false;
+        this.progress = (e.loaded / e.total) * 100;
+      });
+
+      request.on('failure', (e) => {
+        if (this.busy !== request) {
+          return;
+        }
+
+        this.isBusy = false;
+        this.hasFailed = true;
+      })
+    }
+
+    this.isBusy = true;
+  }
 
   constructor(
     private store: MdDatatableStore,
