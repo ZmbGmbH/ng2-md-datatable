@@ -101,7 +101,7 @@ export class MdDataTableComponent extends BaseComponent implements AfterContentI
       return;
     }
 
-    if ([typeof this.busy.onReady, this.busy.on].every(t => t === 'function')) {
+    if ([typeof this.busy.onReady, typeof this.busy.on].every(t => t === 'function')) {
       const request = this.busy as INetworkRequest;
       const whenDone = () => {
         if (this.busy !== request) {

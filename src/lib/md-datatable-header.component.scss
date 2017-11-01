@@ -1,13 +1,17 @@
 :host {
-  display: table-header-group;
+    display: table-header-group;
 }
 
 tr {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .md-data-check-cell {
-  text-align: center;
-  padding-left: 24px;
-  width: 0;
+    padding-left: 24px;
+    width: 0;
+    text-align: center;
+}
+
+.mat-progress-bar {
+    display: table-row;
 }
