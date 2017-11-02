@@ -153,20 +153,13 @@ export class MdDataTableComponent extends BaseComponent implements AfterContentI
 
   ngAfterContentInit() {
     // when datatable is selectable, update state with selectable values from content
-    if (this.isSelectable && this.headerCmp && this.rowsCmp) {
+    if (this.headerCmp && this.rowsCmp) {
       const currentDatatableRows: MdDataTableRowComponent[] = this.rowsCmp.toArray();
 
       this.store.dispatch(
         this.actions.updateSelectableValues(this.id,
           currentDatatableRows.map((row: MdDataTableRowComponent) => row.selectableValue))
       );
-
-      // subscribe to selection changes and emit IDatatableSelectionEvent
-      this.store
-        .let(getCurrentSelection(this.id))
-        .skip(1)
-        .takeUntil(this.unmount$)
-        .subscribe(this.selectionChange);
 
       this.rowsCmp.changes
         .map((query: QueryList<MdDataTableRowComponent>) => query
@@ -176,6 +169,13 @@ export class MdDataTableComponent extends BaseComponent implements AfterContentI
         .subscribe((selectableValues: string[]) => this.store.dispatch(
           this.actions.updateSelectableValues(this.id, selectableValues)));
     }
+
+    // subscribe to selection changes and emit IDatatableSelectionEvent
+    this.store
+      .let(getCurrentSelection(this.id))
+      .skip(1)
+      .takeUntil(this.unmount$)
+      .subscribe(this.selectionChange);
 
     // subscribe to sort changes and emit IDatatableSortEvent
     this.store

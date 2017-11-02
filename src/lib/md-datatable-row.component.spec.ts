@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { MdCheckboxModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material';
 
 import { MdDataTableRowComponent } from './md-datatable-row.component';
 import {
@@ -14,7 +14,7 @@ describe('MdDataTableRowComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MdCheckboxModule,
+        MatCheckboxModule,
       ],
       declarations: [
         MdDataTableRowComponent,
