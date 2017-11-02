@@ -8,8 +8,9 @@ tr {
 
 .md-data-check-cell {
     padding-left: 24px;
-    width: 0;
+    width: 20px;
     text-align: center;
+    box-sizing: content-box;
 }
 
 .mat-progress-bar {

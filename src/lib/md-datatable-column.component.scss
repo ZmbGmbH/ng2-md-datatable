@@ -1,53 +1,54 @@
 @import 'mixins';
+@import 'vars';
 
 :host {
-  display: table-cell;
-  box-sizing: border-box;
-  vertical-align: middle;
-  text-align: left;
-  text-overflow: ellipsis;
-  padding-left: 56px;
+    @include user-select(none);
 
-  @include userSelect(none);
+    display: table-cell;
+    padding-left: 56px;
+    width: $cell-width;
+    vertical-align: middle;
+    text-align: left;
+    text-overflow: ellipsis;
+    box-sizing: content-box;
 
-
-  &:last-child {
-    padding-right: 24px;
-  }
-
-  &ng2-md-datatable-column {
-    &:nth-of-type(1),
-    &:nth-of-type(2) {
-      padding-left: 24px;
+    &:last-child {
+        padding-right: 24px;
     }
-  }
 
-  &.sortable:hover {
-    cursor: pointer;
-  }
+    &ng2-md-datatable-column {
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+            padding-left: 24px;
+        }
+    }
 
-  &.sortable > span {
-    margin-right: 5px;
-  }
+    &.sortable:hover {
+        cursor: pointer;
+    }
 
-  &.sortable > span::after {
-    visibility: hidden;
-    font-family: 'Material Icons';
-    vertical-align: sub;
-    padding-left: 5px;
-    content: '';
-  }
+    &.sortable > span {
+        margin-right: 5px;
+    }
 
-  &.sorted-ascending > span::after {
-    visibility: visible;
-  }
+    &.sortable > span::after {
+        visibility: hidden;
+        padding-left: 5px;
+        vertical-align: sub;
+        font-family: 'Material Icons';
+        content: '';
+    }
 
-  &.sorted-descending > span::after {
-    visibility: visible;
-    content: '';
-  }
+    &.sorted-ascending > span::after {
+        visibility: visible;
+    }
 
-  &.numeric {
-    text-align: right;
-  }
+    &.sorted-descending > span::after {
+        visibility: visible;
+        content: '';
+    }
+
+    &.numeric {
+        text-align: right;
+    }
 }
