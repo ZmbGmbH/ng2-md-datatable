@@ -21,7 +21,7 @@ import {
   IDatatableSortEvent,
   IDatatablePaginationEvent,
   DatatableSortType,
-} from 'ng2-md-datatable';
+} from '@zmb-gmbh/ng2-md-datatable';
 
 import { TShirt } from './app.interfaces';
 import { AppService } from './app.service';

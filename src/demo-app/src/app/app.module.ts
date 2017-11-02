@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
-import { MdDataTableModule } from 'ng2-md-datatable';
+import { MdDataTableModule } from '@zmb-gmbh/ng2-md-datatable';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { MdDataTableModule } from 'ng2-md-datatable';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    MatButtonModule,
     MdDataTableModule,
   ],
   declarations: [
