@@ -65,6 +65,7 @@
         padding: 0 0 0 $datatable-column-padding;
         padding-left: $cell-padding;
         width: $cell-width;
+        white-space: nowrap;
         color: #1a1a1a;
         font-size: 13px;
         font-weight: 400;

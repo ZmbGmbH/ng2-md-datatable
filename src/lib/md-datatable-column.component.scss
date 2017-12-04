@@ -10,6 +10,7 @@
     vertical-align: middle;
     text-align: left;
     text-overflow: ellipsis;
+    white-space: nowrap;
     box-sizing: content-box;
 
     &:last-child {
@@ -31,7 +32,8 @@
         margin-right: 5px;
     }
 
-    &.sortable > span::after {
+    &.sortable:not(.numeric) > span::after,
+    &.sortable.numeric > span::before {
         visibility: hidden;
         padding-left: 5px;
         vertical-align: sub;
@@ -39,11 +41,13 @@
         content: '';
     }
 
-    &.sorted-ascending > span::after {
+    &.sorted-ascending:not(.numeric) > span::after,
+    &.sorted-ascending.numeric > span::before {
         visibility: visible;
     }
 
-    &.sorted-descending > span::after {
+    &.sorted-descending:not(.numeric) > span::after,
+    &.sorted-descending.numeric > span::before {
         visibility: visible;
         content: '';
     }

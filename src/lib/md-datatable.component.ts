@@ -76,6 +76,8 @@ export class MdDataTableComponent extends BaseComponent implements AfterContentI
 
     if (!this.busy) {
       this.isBusy = false;
+
+      return;
     }
 
     if ([typeof this.busy.then, typeof this.busy.catch].every(t => t === 'function')) {
