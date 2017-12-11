@@ -32,7 +32,7 @@ import { MdDatatableActions } from './md-datatable.actions';
     </tr>
     <mat-progress-bar [hidden]="hideProgress" [color]="progressColor" [mode]="progressMode" [value]="progressValue"></mat-progress-bar>
   `,
-  styleUrls: ['md-datatable-header.component.scss']
+  styleUrls: ['md-datatable-header.component.css']
 })
 export class MdDataTableHeaderComponent extends BaseComponent implements AfterViewInit {
   allChecked$: BehaviorSubject<boolean> = new BehaviorSubject(false);
