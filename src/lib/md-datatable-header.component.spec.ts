@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { MdCheckboxModule } from '@angular/material';
+import { MatCheckboxModule, MatProgressBarModule } from '@angular/material';
 
 import { MdDataTableHeaderComponent } from './md-datatable-header.component';
 import {
@@ -14,7 +14,8 @@ describe('MdDataTableHeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MdCheckboxModule,
+        MatCheckboxModule,
+        MatProgressBarModule
       ],
       declarations: [
         MdDataTableHeaderComponent,

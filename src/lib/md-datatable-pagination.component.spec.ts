@@ -1,6 +1,6 @@
 import { async, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { MdSelectModule, MdButtonModule, MdIconModule } from '@angular/material';
+import { MatSelectModule, MatButtonModule, MatIconModule } from '@angular/material';
 import { MdDataTablePaginationComponent } from './md-datatable-pagination.component';
 
 describe('MdDataTablePaginationComponent', () => {
@@ -8,9 +8,9 @@ describe('MdDataTablePaginationComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        MdSelectModule,
-        MdButtonModule,
-        MdIconModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatIconModule,
       ],
       declarations: [
         MdDataTablePaginationComponent,
